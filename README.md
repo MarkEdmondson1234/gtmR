@@ -1,3 +1,3 @@
 # gtmR
 
-A GTM API package for R.  Early stages.
+A Google Tag Manager API package for R.  Early stages.
