@@ -12,7 +12,12 @@ gtm_list_containers <- function(accountId){
                                                "GET",
                                                data_parse_function = function(x) x)
   
-  containers()
+  out <- try(containers())
+  if(assertthat::is.error(out)){
+    out <- NULL
+  }
+  
+  out
   
 }
 
