@@ -15,4 +15,3 @@ account data list of $accountId, $name, $shareDate, $fingerprint
 \description{
 Get individual GTM account detail
 }
-

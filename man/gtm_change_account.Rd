@@ -22,4 +22,3 @@ account data with modified fields
 \description{
 Requires https://www.googleapis.com/auth/tagmanager.manage.accounts scope
 }
-

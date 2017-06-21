@@ -17,4 +17,3 @@ container info
 \description{
 Get individual GTM account detail
 }
-

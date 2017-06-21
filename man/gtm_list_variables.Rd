@@ -17,4 +17,3 @@ Dataframe of accountId, name
 \description{
 List GTM variables
 }
-

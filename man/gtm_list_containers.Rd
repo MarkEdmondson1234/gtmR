@@ -4,7 +4,7 @@
 \alias{gtm_list_containers}
 \title{List GTM accounts}
 \usage{
-gtm_list_containers(accountId)
+gtm_list_containers(accountIds)
 }
 \value{
 Dataframe of accountId, name
@@ -12,4 +12,3 @@ Dataframe of accountId, name
 \description{
 List GTM accounts
 }
-

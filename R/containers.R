@@ -3,7 +3,20 @@
 #' @return Dataframe of accountId, name
 #'
 #' @export
-gtm_list_containers <- function(accountId){
+gtm_list_containers <- function(accountIds){
+  
+  assertthat::assert_that(
+    is.character(accountIds)
+  )
+  
+  vapply(accountIds, list_container, list(1))
+  
+}
+
+list_container <- function(accountId){
+  assertthat::assert_that(
+    assertthat::is.string(accountId)
+  )
   
   build_url <- sprintf("https://www.googleapis.com/tagmanager/v1/accounts/%s/containers",
                        accountId)
@@ -14,9 +27,15 @@ gtm_list_containers <- function(accountId){
   
   out <- try(containers())
   if(assertthat::is.error(out)){
-    out <- NULL
+    warning("Nothing found")
+    out <- list("Nothing found")
   }
   
+  if(length(out) == 0){
+    warning("0 length")
+    out <- list("0 length")
+  }
+
   out
   
 }

@@ -22,4 +22,3 @@ Get GTM variables
 \seealso{
 \href{https://developers.google.com/tag-manager/api/v1/reference/accounts/containers/variables/get}{Google Docs}
 }
-
