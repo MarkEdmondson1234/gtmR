@@ -18,10 +18,11 @@ list_container <- function(accountId){
     assertthat::is.string(accountId)
   )
   # be kind to API - 0.25 QPS, 25 in 100 seconds
-  Sys.sleep(4)
+  Sys.sleep(5)
   build_url <- sprintf("https://www.googleapis.com/tagmanager/v1/accounts/%s/containers",
                        accountId)
   
+  message("Fetching containers for ", accountId)
   containers <- googleAuthR::gar_api_generator(build_url,
                                                "GET",
                                                data_parse_function = function(x) x)
