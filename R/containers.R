@@ -17,7 +17,8 @@ list_container <- function(accountId){
   assertthat::assert_that(
     assertthat::is.string(accountId)
   )
-  
+  # be kind to API - 0.25 QPS, 25 in 100 seconds
+  Sys.sleep(4)
   build_url <- sprintf("https://www.googleapis.com/tagmanager/v1/accounts/%s/containers",
                        accountId)
   
