@@ -11,7 +11,7 @@ gtm_get_variables(accountId, containerId, variableId)
 
 \item{containerId}{GTM Container ID}
 
-\item{variableID}{The GTM variable ID}
+\item{variableId}{The GTM variable ID}
 }
 \value{
 Dataframe of accountId, name
