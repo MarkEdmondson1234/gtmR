@@ -1,46 +1,18 @@
-#' List GTM accounts
+#' GTM container list
 #'
-#' @return Dataframe of accountId, name
+#' Downloads all GTM containers for a defined account ID
 #'
+#' @param accountId Add your GTM account ID to get the list of containers
 #' @export
-gtm_list_containers <- function(accountIds){
-  
-  assertthat::assert_that(
-    is.character(accountIds)
-  )
-  
-  vapply(accountIds, list_container, list(1))
-  
+#'
+gtm_list_containers <- function(accountId){
+  acc_url <- "https://www.googleapis.com/tagmanager/v2/accounts"
+  f_con <- gar_api_generator(paste(acc_url, "/",accountId,"/containers", sep = ""),
+                             "GET")
+  c<- f_con()
+  as.data.frame(c$content)
 }
 
-list_container <- function(accountId){
-  assertthat::assert_that(
-    assertthat::is.string(accountId)
-  )
-  # be kind to API - 0.25 QPS, 25 in 100 seconds
-  Sys.sleep(5)
-  build_url <- sprintf("https://www.googleapis.com/tagmanager/v1/accounts/%s/containers",
-                       accountId)
-  
-  message("Fetching containers for ", accountId)
-  containers <- googleAuthR::gar_api_generator(build_url,
-                                               "GET",
-                                               data_parse_function = function(x) x)
-  
-  out <- try(containers())
-  if(assertthat::is.error(out)){
-    warning("Nothing found")
-    out <- list("Nothing found")
-  }
-  
-  if(length(out) == 0){
-    warning("0 length")
-    out <- list("0 length")
-  }
-
-  out
-  
-}
 
 #' Get individual GTM account detail
 #'

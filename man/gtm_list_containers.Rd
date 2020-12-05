@@ -2,13 +2,13 @@
 % Please edit documentation in R/containers.R
 \name{gtm_list_containers}
 \alias{gtm_list_containers}
-\title{List GTM accounts}
+\title{GTM container list}
 \usage{
-gtm_list_containers(accountIds)
+gtm_list_containers(accountId)
 }
-\value{
-Dataframe of accountId, name
+\arguments{
+\item{accountId}{Add your GTM account ID to get the list of containers}
 }
 \description{
-List GTM accounts
+Downloads all GTM containers for a defined account ID
 }

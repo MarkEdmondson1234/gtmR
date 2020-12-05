@@ -4,8 +4,12 @@
 \alias{gtm_change_account}
 \title{Change GTM account detail}
 \usage{
-gtm_change_account(accountId, name = NULL, shareData = NULL,
-  fingerprint = NULL)
+gtm_change_account(
+  accountId,
+  name = NULL,
+  shareData = NULL,
+  fingerprint = NULL
+)
 }
 \arguments{
 \item{accountId}{accountId to request}
