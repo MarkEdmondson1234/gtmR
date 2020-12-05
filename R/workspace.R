@@ -6,7 +6,7 @@
 #' @param containerId Add your GTM container ID
 #' @export
 #'
-gtm_workspace_list <- function(accountId, containerId) {
+gtm_list_workspaces <- function(accountId, containerId) {
   cont_url <- paste("https://www.googleapis.com/tagmanager/v2/accounts/",accountId,"/containers", sep = "")
   env_url <- paste(cont_url,"/",containerId, "/workspaces", sep = "")
   f_env <- gar_api_generator(env_url, "GET")
@@ -23,6 +23,6 @@ gtm_workspace_list <- function(accountId, containerId) {
 #' @export
 #'
 gtm_workspace_id <- function(accountId, containerId){
-  gtm_workspace_list(accountId, containerId) -> ge
+  gtm_list_workspaces(accountId, containerId) -> ge
   max(as.numeric(ge$workspace.workspaceId), na.rm = TRUE)
 }

@@ -7,6 +7,6 @@
 #' @export
 #'
 gtm_container_version <- function(accountId, containerId){
-  gtm_environment_list(accountId, containerId) -> ge
+  gtm_list_environments(accountId, containerId) -> ge
   max(as.numeric(ge$environment.containerVersionId), na.rm = TRUE)
 }

@@ -18,7 +18,7 @@ gtm_list_variables <- function(accountId,
   # vars()
   
   gtm_workspace_id(accountId, containerId) -> ws
-  cont_url <- paste("https://www.googleapis.com/tagmanager/v2/accounts/",accountIdd,"/containers", sep = "")
+  cont_url <- paste("https://www.googleapis.com/tagmanager/v2/accounts/",accountId,"/containers", sep = "")
   var_url <- paste(cont_url,"/",containerId, "/workspaces/",  ws, "/variables", sep = "")
   f_var <- gar_api_generator(var_url,
                              "GET")
